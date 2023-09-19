@@ -63,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $postalCode = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $pathImage = null;
+
     public function __construct()
     {
         $this->nfts = new ArrayCollection();
@@ -303,6 +306,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPostalCode(string $postalCode): static
     {
         $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    public function getPathImage(): ?string
+    {
+        return $this->pathImage;
+    }
+
+    public function setPathImage(string $pathImage): static
+    {
+        $this->pathImage = $pathImage;
 
         return $this;
     }
